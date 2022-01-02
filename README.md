@@ -4,7 +4,10 @@
 
 This project serves as a frontend interview project for Knoetic (`http://localhost:3000`). The backend is mocked using json-server, a library used for rapid prototyping of backend during development phase (`http://localhost:8000`). During development phase, eslint and prettier were utilized to ensure best coding practices and proper code formatting. Even though this is an interview, I wanted to simulate this like how I would normally do on a normal working project. Hence, I've added **linters**, **code formatters** and also a simple **test** script to ensure some level of coverage on the features built.
 
+SCSS modules were used to prevent classes with the same name to clash between components. While it does not affect the current project, it might be in the future. Hence, the reason for CSS modules. 
+
 Configs for eslint and prettier can be found in `.eslintrc.js` and `.prettierrc`.
+Completion of each stage can be found in the different branches of the repository.
 
 ## Getting started
 
@@ -24,6 +27,7 @@ Configs for eslint and prettier can be found in `.eslintrc.js` and `.prettierrc`
    `npm run lint`
 
 6. Auto formatting .js and .jsx files 
+   `npm run prettify`
 
 ## Libraries Utilized
 
