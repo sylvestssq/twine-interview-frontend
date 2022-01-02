@@ -29,8 +29,7 @@ const AttritionContainer = () => {
           rehire_eligible: rehireEligibility
         }
       });
-      const { data } = res;
-      const sortedResult = getTimelineData(data);
+      const sortedResult = getTimelineData(res.data);
       setEmployees({ ...sortedResult });
     } catch (e) {
       console.error(e);

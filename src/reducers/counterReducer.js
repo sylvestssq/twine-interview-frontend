@@ -1,5 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 
+/*
+A reducer is used to manage the operations for counter to make the code more concise instead of having to declare multiple function expressions in the component to pass down as props into child components.
+*/
+
 const counterReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_COUNTER':
