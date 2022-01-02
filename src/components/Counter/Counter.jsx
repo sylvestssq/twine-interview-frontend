@@ -1,0 +1,60 @@
+import React, { useState, useContext } from 'react';
+import { Card, Input, Button } from 'antd';
+import { EditOutlined, DeleteOutlined, UpOutlined, DownOutlined } from '@ant-design/icons';
+import { CounterContext } from '../../contexts/CounterContext';
+import styles from './Counter.module.scss';
+
+const Counter = ({ counter }) => {
+  const { dispatch } = useContext(CounterContext);
+  const [input, setInput] = useState({
+    title: counter.title,
+    editable: false
+  });
+
+  const handleEditable = () => {
+    setInput((prev) => ({ ...prev, editable: !prev.editable }));
+  };
+
+  const handleUpdate = () => {
+    dispatch({ type: 'EDIT_TITLE', id: counter.id, title: input.title });
+    handleEditable();
+  };
+
+  return (
+    <Card
+      bordered={false}
+      className={styles.container}
+      actions={[
+        <UpOutlined
+          key="increment"
+          onClick={() => dispatch({ type: 'INCREMENT_COUNTER', id: counter.id })}
+        />,
+        <DownOutlined
+          key="decrement"
+          onClick={() => dispatch({ type: 'DECREMENT_COUNTER', id: counter.id })}
+        />,
+        <EditOutlined key="edit" onClick={handleEditable} />,
+        <DeleteOutlined
+          key="delete"
+          onClick={() => dispatch({ type: 'REMOVE_COUNTER', id: counter.id })}
+        />
+      ]}>
+      {input.editable ? (
+        <Input.Group compact>
+          <Input
+            value={input.title}
+            onPressEnter={handleUpdate}
+            onChange={(e) => setInput((prev) => ({ ...prev, title: e.target.value }))}
+          />
+          <Button type="primary" onClick={handleUpdate}>
+            Update
+          </Button>
+        </Input.Group>
+      ) : (
+        `${counter.title}: ${counter.count}`
+      )}
+    </Card>
+  );
+};
+
+export default Counter;
