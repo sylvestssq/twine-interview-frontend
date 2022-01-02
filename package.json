@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false --coverage",
     "eject": "react-scripts eject",
     "lint": "npx eslint 'src/**/*.{js,jsx}' --fix",
     "prettify": "npx prettier --write .",
@@ -51,5 +51,11 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "2.5.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "!<rootDir>/src/reportWebVitals.js",
+      "!<rootDir>/src/index.jsx"
+    ]
   }
 }

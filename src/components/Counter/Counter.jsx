@@ -28,15 +28,18 @@ const Counter = ({ counter }) => {
         <UpOutlined
           key="increment"
           onClick={() => dispatch({ type: 'INCREMENT_COUNTER', id: counter.id })}
+          data-testid="increment-button"
         />,
         <DownOutlined
           key="decrement"
           onClick={() => dispatch({ type: 'DECREMENT_COUNTER', id: counter.id })}
+          data-testid="decrement-button"
         />,
-        <EditOutlined key="edit" onClick={handleEditable} />,
+        <EditOutlined key="edit" onClick={handleEditable} data-testid="edit-button" />,
         <DeleteOutlined
           key="delete"
           onClick={() => dispatch({ type: 'REMOVE_COUNTER', id: counter.id })}
+          data-testid="delete-button"
         />
       ]}>
       {input.editable ? (
@@ -45,6 +48,7 @@ const Counter = ({ counter }) => {
             value={input.title}
             onPressEnter={handleUpdate}
             onChange={(e) => setInput((prev) => ({ ...prev, title: e.target.value }))}
+            data-testid="counter-input"
           />
           <Button type="primary" onClick={handleUpdate} className={styles.marginTop}>
             Update
