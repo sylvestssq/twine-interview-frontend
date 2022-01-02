@@ -1,0 +1,20 @@
+.eligibilityIcon {
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+
+.voluntary {
+  @extend .eligibilityIcon;
+  background-color: green
+}
+
+.involuntary {
+  @extend .eligibilityIcon;
+  background-color: red
+}
+
+.unapplicable {
+  @extend .eligibilityIcon;
+  background-color: grey
+}

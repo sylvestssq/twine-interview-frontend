@@ -46,7 +46,7 @@ const Counter = ({ counter }) => {
             onPressEnter={handleUpdate}
             onChange={(e) => setInput((prev) => ({ ...prev, title: e.target.value }))}
           />
-          <Button type="primary" onClick={handleUpdate}>
+          <Button type="primary" onClick={handleUpdate} className={styles.marginTop}>
             Update
           </Button>
         </Input.Group>

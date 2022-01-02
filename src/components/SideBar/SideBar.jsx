@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Layout, Button, Row, Col } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import Counter from '../Counter/Counter';
@@ -15,18 +15,20 @@ const SideBar = () => {
   };
 
   return (
-    <Sider>
-      {counters.length > 0 ? (
-        counters.map((counter) => (
-          <Row key={counter.id} gutter={[16, 16]}>
-            <Col span={24} className={styles.flexboxCenter}>
-              <Counter counter={counter} />
+    <Sider width={300}>
+      <Row gutter={[0, 16]}>
+        {counters.length > 0 ? (
+          counters.map((counter) => (
+            <Col span={24} key={counter.id}>
+              <div className={styles.flexboxCenter}>
+                <Counter counter={counter} />
+              </div>
             </Col>
-          </Row>
-        ))
-      ) : (
-        <div>No counters available</div>
-      )}
+          ))
+        ) : (
+          <Col span={24}>No counters available</Col>
+        )}
+      </Row>
       <Row justify="center" align="middle">
         <Col className={styles.flexboxCenter}>
           <Button

@@ -1,7 +1,8 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    jest: true,
   },
   extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   parserOptions: {
@@ -22,6 +23,7 @@ module.exports = {
         unnamedComponents: 'arrow-function'
       }
     ],
-    'no-unused-vars': ['warn']
+    'no-unused-vars': ['warn'],
+    'no-console': ["warn", { allow: ["error"] }]
   }
 };

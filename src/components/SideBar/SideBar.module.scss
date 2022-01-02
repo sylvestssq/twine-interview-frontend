@@ -1,9 +1,10 @@
-.mainContainer {
-  background-color: #f5f5f5;
-}
-
 .flexboxCenter {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.siderContainer {
+  width: 300px;
+  min-width: 300px;
 }
