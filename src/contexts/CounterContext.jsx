@@ -14,6 +14,7 @@ const CounterContextProvider = ({ children }) => {
   }, [counters]);
 
   return (
+    // NOTE: Disabled eslint as state and function is not overly complex to require useMemo utilization for rapid prototyping. To consider in future iterations.
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     <CounterContext.Provider value={{ counters, dispatch }}>{children}</CounterContext.Provider>
   );
